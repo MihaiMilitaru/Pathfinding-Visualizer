@@ -9,5 +9,6 @@ Upcoming changes:
 - A* Search
 - Dijkastra's Algorithm
 - Media Query (not sure about it)
+- hosting
 
 This app is NOT designed for small screens such as tablets or phones. 
