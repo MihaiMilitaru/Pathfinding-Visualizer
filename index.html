@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Path Visualizer</title>
+</head>
+<body>
+    <div class="navbr">
+        <h3>Path Visualizer</h3>
+        <button class="minibox" onClick="dfs()">
+            Depth-first Search
+        </button>
+
+        <button class="minibox" onClick="bfs()">
+            Breadth-first Search
+        </button>
+
+        <button class="minibox" onClick="astar()">
+            A* Search
+        </button>
+
+        <button class="minibox" onClick="dijkastra()">
+            Dijkastra's Algorithm
+        </button>
+    </div>
+
+    <div class="container">
+        <div class="infos">
+            <p>Start Node</p>
+            <div id="reddiv"></div>
+            <button id="minibox2" onClick="red()">
+                SELECT
+            </button>
+        </div>
+        
+        <div class="infos">
+            <p>Target Node</p>
+            <div id="greendiv"></div>
+            <button id="minibox3" onClick="green()">
+                SELECT
+            </button>
+        </div>
+        
+
+        <div class="infos">
+            <p>Obstacle Node</p>
+            <div id="blackdiv"></div>
+            <button id="minibox4" onClick="black()">
+                SELECT
+            </button>
+        </div>
+        
+
+    </div>
+
+    <div class="gridd">
+        <div id="grid_0_0" onclick="selection_0_0()"></div>
+        <div id="grid_0_1" onclick="selection_0_1()"></div>
+        <div id="grid_0_2" onclick="selection_0_2()"></div>
+        <div id="grid_0_3" onclick="selection_0_3()"></div>
+        <div id="grid_0_4" onclick="selection_0_4()"></div>
+        <div id="grid_0_5" onclick="selection_0_5()"></div>
+        <div id="grid_0_6" onclick="selection_0_6()"></div>
+        <div id="grid_0_7" onclick="selection_0_7()"></div>
+        <div id="grid_0_8" onclick="selection_0_8()"></div>
+        <div id="grid_0_9" onclick="selection_0_9()"></div>
+        <div id="grid_0_10" onclick="selection_0_10()"></div>
+        <div id="grid_0_11" onclick="selection_0_11()"></div>
+        <div id="grid_0_12" onclick="selection_0_12()"></div>
+        <div id="grid_0_13" onclick="selection_0_13()"></div>
+        <div id="grid_0_14" onclick="selection_0_14()"></div>
+        <div id="grid_0_15" onclick="selection_0_15()"></div>
+        <div id="grid_0_16" onclick="selection_0_16()"></div>
+        <div id="grid_0_17" onclick="selection_0_17()"></div>
+        <div id="grid_0_18" onclick="selection_0_18()"></div>
+        <div id="grid_0_19" onclick="selection_0_19()"></div>
+
+
+
+        <div id="grid_1_0" onclick="selection_1_0()"></div>
+        <div id="grid_1_1" onclick="selection_1_1()"></div>
+        <div id="grid_1_2" onclick="selection_1_2()"></div>
+        <div id="grid_1_3" onclick="selection_1_3()"></div>
+        <div id="grid_1_4" onclick="selection_1_4()"></div>
+        <div id="grid_1_5" onclick="selection_1_5()"></div>
+        <div id="grid_1_6" onclick="selection_1_6()"></div>
+        <div id="grid_1_7" onclick="selection_1_7()"></div>
+        <div id="grid_1_8" onclick="selection_1_8()"></div>
+        <div id="grid_1_9" onclick="selection_1_9()"></div>
+        <div id="grid_1_10" onclick="selection_1_10()"></div>
+        <div id="grid_1_11" onclick="selection_1_11()"></div>
+        <div id="grid_1_12" onclick="selection_1_12()"></div>
+        <div id="grid_1_13" onclick="selection_1_13()"></div>
+        <div id="grid_1_14" onclick="selection_1_14()"></div>
+        <div id="grid_1_15" onclick="selection_1_15()"></div>
+        <div id="grid_1_16" onclick="selection_1_16()"></div>
+        <div id="grid_1_17" onclick="selection_1_17()"></div>
+        <div id="grid_1_18" onclick="selection_1_18()"></div>
+        <div id="grid_1_19" onclick="selection_1_19()"></div>
+
+
+
+
+        <div id="grid_2_0" onclick="selection_2_0()"></div>
+        <div id="grid_2_1" onclick="selection_2_1()"></div>
+        <div id="grid_2_2" onclick="selection_2_2()"></div>
+        <div id="grid_2_3" onclick="selection_2_3()"></div>
+        <div id="grid_2_4" onclick="selection_2_4()"></div>
+        <div id="grid_2_5" onclick="selection_2_5()"></div>
+        <div id="grid_2_6" onclick="selection_2_6()"></div>
+        <div id="grid_2_7" onclick="selection_2_7()"></div>
+        <div id="grid_2_8" onclick="selection_2_8()"></div>
+        <div id="grid_2_9" onclick="selection_2_9()"></div>
+        <div id="grid_2_10" onclick="selection_2_10()"></div>
+        <div id="grid_2_11" onclick="selection_2_11()"></div>
+        <div id="grid_2_12" onclick="selection_2_12()"></div>
+        <div id="grid_2_13" onclick="selection_2_13()"></div>
+        <div id="grid_2_14" onclick="selection_2_14()"></div>
+        <div id="grid_2_15" onclick="selection_2_15()"></div>
+        <div id="grid_2_16" onclick="selection_2_16()"></div>
+        <div id="grid_2_17" onclick="selection_2_17()"></div>
+        <div id="grid_2_18" onclick="selection_2_18()"></div>
+        <div id="grid_2_19" onclick="selection_2_19()"></div>
+
+
+        <div id="grid_3_0" onclick="selection_3_0()"></div>
+        <div id="grid_3_1" onclick="selection_3_1()"></div>
+        <div id="grid_3_2" onclick="selection_3_2()"></div>
+        <div id="grid_3_3" onclick="selection_3_3()"></div>
+        <div id="grid_3_4" onclick="selection_3_4()"></div>
+        <div id="grid_3_5" onclick="selection_3_5()"></div>
+        <div id="grid_3_6" onclick="selection_3_6()"></div>
+        <div id="grid_3_7" onclick="selection_3_7()"></div>
+        <div id="grid_3_8" onclick="selection_3_8()"></div>
+        <div id="grid_3_9" onclick="selection_3_9()"></div>
+        <div id="grid_3_10" onclick="selection_3_10()"></div>
+        <div id="grid_3_11" onclick="selection_3_11()"></div>
+        <div id="grid_3_12" onclick="selection_3_12()"></div>
+        <div id="grid_3_13" onclick="selection_3_13()"></div>
+        <div id="grid_3_14" onclick="selection_3_14()"></div>
+        <div id="grid_3_15" onclick="selection_3_15()"></div>
+        <div id="grid_3_16" onclick="selection_3_16()"></div>
+        <div id="grid_3_17" onclick="selection_3_17()"></div>
+        <div id="grid_3_18" onclick="selection_3_18()"></div>
+        <div id="grid_3_19" onclick="selection_3_19()"></div>
+
+
+        <div id="grid_4_0" onclick="selection_4_0()"></div>
+        <div id="grid_4_1" onclick="selection_4_1()"></div>
+        <div id="grid_4_2" onclick="selection_4_2()"></div>
+        <div id="grid_4_3" onclick="selection_4_3()"></div>
+        <div id="grid_4_4" onclick="selection_4_4()"></div>
+        <div id="grid_4_5" onclick="selection_4_5()"></div>
+        <div id="grid_4_6" onclick="selection_4_6()"></div>
+        <div id="grid_4_7" onclick="selection_4_7()"></div>
+        <div id="grid_4_8" onclick="selection_4_8()"></div>
+        <div id="grid_4_9" onclick="selection_4_9()"></div>
+        <div id="grid_4_10" onclick="selection_4_10()"></div>
+        <div id="grid_4_11" onclick="selection_4_11()"></div>
+        <div id="grid_4_12" onclick="selection_4_12()"></div>
+        <div id="grid_4_13" onclick="selection_4_13()"></div>
+        <div id="grid_4_14" onclick="selection_4_14()"></div>
+        <div id="grid_4_15" onclick="selection_4_15()"></div>
+        <div id="grid_4_16" onclick="selection_4_16()"></div>
+        <div id="grid_4_17" onclick="selection_4_17()"></div>
+        <div id="grid_4_18" onclick="selection_4_18()"></div>
+        <div id="grid_4_19" onclick="selection_4_19()"></div>
+
+
+
+
+        <div id="grid_5_0" onclick="selection_5_0()"></div>
+        <div id="grid_5_1" onclick="selection_5_1()"></div>
+        <div id="grid_5_2" onclick="selection_5_2()"></div>
+        <div id="grid_5_3" onclick="selection_5_3()"></div>
+        <div id="grid_5_4" onclick="selection_5_4()"></div>
+        <div id="grid_5_5" onclick="selection_5_5()"></div>
+        <div id="grid_5_6" onclick="selection_5_6()"></div>
+        <div id="grid_5_7" onclick="selection_5_7()"></div>
+        <div id="grid_5_8" onclick="selection_5_8()"></div>
+        <div id="grid_5_9" onclick="selection_5_9()"></div>
+        <div id="grid_5_10" onclick="selection_5_10()"></div>
+        <div id="grid_5_11" onclick="selection_5_11()"></div>
+        <div id="grid_5_12" onclick="selection_5_12()"></div>
+        <div id="grid_5_13" onclick="selection_5_13()"></div>
+        <div id="grid_5_14" onclick="selection_5_14()"></div>
+        <div id="grid_5_15" onclick="selection_5_15()"></div>
+        <div id="grid_5_16" onclick="selection_5_16()"></div>
+        <div id="grid_5_17" onclick="selection_5_17()"></div>
+        <div id="grid_5_18" onclick="selection_5_18()"></div>
+        <div id="grid_5_19" onclick="selection_5_19()"></div>
+
+
+
+        <div id="grid_6_0" onclick="selection_6_0()"></div>
+        <div id="grid_6_1" onclick="selection_6_1()"></div>
+        <div id="grid_6_2" onclick="selection_6_2()"></div>
+        <div id="grid_6_3" onclick="selection_6_3()"></div>
+        <div id="grid_6_4" onclick="selection_6_4()"></div>
+        <div id="grid_6_5" onclick="selection_6_5()"></div>
+        <div id="grid_6_6" onclick="selection_6_6()"></div>
+        <div id="grid_6_7" onclick="selection_6_7()"></div>
+        <div id="grid_6_8" onclick="selection_6_8()"></div>
+        <div id="grid_6_9" onclick="selection_6_9()"></div>
+        <div id="grid_6_10" onclick="selection_6_10()"></div>
+        <div id="grid_6_11" onclick="selection_6_11()"></div>
+        <div id="grid_6_12" onclick="selection_6_12()"></div>
+        <div id="grid_6_13" onclick="selection_6_13()"></div>
+        <div id="grid_6_14" onclick="selection_6_14()"></div>
+        <div id="grid_6_15" onclick="selection_6_15()"></div>
+        <div id="grid_6_16" onclick="selection_6_16()"></div>
+        <div id="grid_6_17" onclick="selection_6_17()"></div>
+        <div id="grid_6_18" onclick="selection_6_18()"></div>
+        <div id="grid_6_19" onclick="selection_6_19()"></div>
+
+
+
+
+        
+        <div id="grid_7_0" onclick="selection_7_0()"></div>
+        <div id="grid_7_1" onclick="selection_7_1()"></div>
+        <div id="grid_7_2" onclick="selection_7_2()"></div>
+        <div id="grid_7_3" onclick="selection_7_3()"></div>
+        <div id="grid_7_4" onclick="selection_7_4()"></div>
+        <div id="grid_7_5" onclick="selection_7_5()"></div>
+        <div id="grid_7_6" onclick="selection_7_6()"></div>
+        <div id="grid_7_7" onclick="selection_7_7()"></div>
+        <div id="grid_7_8" onclick="selection_7_8()"></div>
+        <div id="grid_7_9" onclick="selection_7_9()"></div>
+        <div id="grid_7_10" onclick="selection_7_10()"></div>
+        <div id="grid_7_11" onclick="selection_7_11()"></div>
+        <div id="grid_7_12" onclick="selection_7_12()"></div>
+        <div id="grid_7_13" onclick="selection_7_13()"></div>
+        <div id="grid_7_14" onclick="selection_7_14()"></div>
+        <div id="grid_7_15" onclick="selection_7_15()"></div>
+        <div id="grid_7_16" onclick="selection_7_16()"></div>
+        <div id="grid_7_17" onclick="selection_7_17()"></div>
+        <div id="grid_7_18" onclick="selection_7_18()"></div>
+        <div id="grid_7_19" onclick="selection_7_19()"></div>
+
+
+
+        <div id="grid_8_0" onclick="selection_8_0()"></div>
+        <div id="grid_8_1" onclick="selection_8_1()"></div>
+        <div id="grid_8_2" onclick="selection_8_2()"></div>
+        <div id="grid_8_3" onclick="selection_8_3()"></div>
+        <div id="grid_8_4" onclick="selection_8_4()"></div>
+        <div id="grid_8_5" onclick="selection_8_5()"></div>
+        <div id="grid_8_6" onclick="selection_8_6()"></div>
+        <div id="grid_8_7" onclick="selection_8_7()"></div>
+        <div id="grid_8_8" onclick="selection_8_8()"></div>
+        <div id="grid_8_9" onclick="selection_8_9()"></div>
+        <div id="grid_8_10" onclick="selection_8_10()"></div>
+        <div id="grid_8_11" onclick="selection_8_11()"></div>
+        <div id="grid_8_12" onclick="selection_8_12()"></div>
+        <div id="grid_8_13" onclick="selection_8_13()"></div>
+        <div id="grid_8_14" onclick="selection_8_14()"></div>
+        <div id="grid_8_15" onclick="selection_8_15()"></div>
+        <div id="grid_8_16" onclick="selection_8_16()"></div>
+        <div id="grid_8_17" onclick="selection_8_17()"></div>
+        <div id="grid_8_18" onclick="selection_8_18()"></div>
+        <div id="grid_8_19" onclick="selection_8_19()"></div>
+
+
+
+
+        <div id="grid_9_0" onclick="selection_9_0()"></div>
+        <div id="grid_9_1" onclick="selection_9_1()"></div>
+        <div id="grid_9_2" onclick="selection_9_2()"></div>
+        <div id="grid_9_3" onclick="selection_9_3()"></div>
+        <div id="grid_9_4" onclick="selection_9_4()"></div>
+        <div id="grid_9_5" onclick="selection_9_5()"></div>
+        <div id="grid_9_6" onclick="selection_9_6()"></div>
+        <div id="grid_9_7" onclick="selection_9_7()"></div>
+        <div id="grid_9_8" onclick="selection_9_8()"></div>
+        <div id="grid_9_9" onclick="selection_9_9()"></div>
+        <div id="grid_9_10" onclick="selection_9_10()"></div>
+        <div id="grid_9_11" onclick="selection_9_11()"></div>
+        <div id="grid_9_12" onclick="selection_9_12()"></div>
+        <div id="grid_9_13" onclick="selection_9_13()"></div>
+        <div id="grid_9_14" onclick="selection_9_14()"></div>
+        <div id="grid_9_15" onclick="selection_9_15()"></div>
+        <div id="grid_9_16" onclick="selection_9_16()"></div>
+        <div id="grid_9_17" onclick="selection_9_17()"></div>
+        <div id="grid_9_18" onclick="selection_9_18()"></div>
+        <div id="grid_9_19" onclick="selection_9_19()"></div>
+    </div>
+
+    <div class="last_container">
+        <h2>Important aspects</h2>
+        <p>Press the RED Select button to select the START Node. If you want to dismiss the current START Node click again and then, with the same color selected choose another cell.</p>
+        <p>Press the GREEN Select button to select the TARGET Node. If you want to dismiss the current TARGET Node click again and then, with the same color selected choose another cell.</p>
+        <p>Press the BLACK Select button to select the OBSTACLE Node. You are free to select as many OBSTACLE Nodes as you want.</p>
+        <p>Once the nodes have been selected, you can start the algorithm you want.</p>
+        
+    </div>
+
+    <button class="clear" onclick="clearboard()">CLEAR BOARD</button>
+
+
+    
+    <script src="main.js"></script>
+    
+</body>
+</html>
